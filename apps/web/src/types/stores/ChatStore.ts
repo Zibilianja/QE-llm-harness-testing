@@ -1,37 +1,25 @@
-import type {
-  ChatMessage,
-  ChatRunResult,
-  ChatRunStatus,
-  ChatSettings,
-  Role,
-} from '@/types';
+import type { ChatMessage } from '@/types';
 
 export type Provider = 'openai' | 'anthropic';
 
 export type ChatStore = {
-  messages: ChatMessage[];
-  settings: ChatSettings;
-  status: ChatRunStatus;
-  lastResult: ChatRunResult | null;
-
-  provider: Provider;
+  input: string;
+  msgsByProvider: Record<Provider, ChatMessage[]>;
+  loading: boolean;
   error: string | null;
 
-  addMessage: (role: Role, content: string) => void;
-  updateMessage: (
-    id: string,
-    patch: Partial<Pick<ChatMessage, 'content'>>,
+  provider: Provider;
+  model: string;
+
+  setInput: (v: string) => void;
+  setMsgs: (
+    v: ChatMessage[] | ((prev: ChatMessage[]) => ChatMessage[]),
   ) => void;
-  removeMessage: (id: string) => void;
-  clearMessages: () => void;
+  setLoading: (v: boolean) => void;
+  setError: (v: string | null) => void;
 
-  setSettings: (patch: Partial<ChatSettings>) => void;
-
-  setStatus: (status: ChatRunStatus) => void;
-  setLastResult: (result: ChatRunResult | null) => void;
-
-  setProvider: (provider: Provider) => void;
-  setError: (error: string | null) => void;
-
-  hydrateFrom: (messages: ChatMessage[]) => void;
+  setProvider: (v: Provider) => void;
+  setModel: (v: string) => void;
+  clearMsgsForProvider: (p: Provider) => void;
+  clearAll: () => void;
 };

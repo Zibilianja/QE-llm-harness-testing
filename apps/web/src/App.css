@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  width: 100vw;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -39,4 +39,107 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.app-container {
+  width: 70%;
+  height: 100vh;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  
+}
+
+.provider-label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.provider-select {
+  padding: 4px 8px;
+  width: fit-content;
+}
+
+.provider-select:hover {
+  
+  cursor: pointer;
+}
+
+.model-info {
+  margin-bottom: 12px;
+  font-size: 12px;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  min-height: 2.5rem;
+}
+
+.model-name {
+  margin-left: 8px;
+  color: #8edf57;
+}
+
+.clear-messages {
+  margin-left: auto;
+}
+
+
+
+.chat-thread {  
+  padding: 1rem;
+  min-height: 220px;
+  background-color: rgba(214, 212, 212, 0.466);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* the glass panel */
+.chat-thread {
+  position: relative;
+  flex: 1;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  background: rgba(103, 113, 121, 0.637);
+  border: 1px solid rgba(240, 240, 240, 0.247);
+  box-shadow: 0 0 10px 8px rgba(220, 232, 240, 0.541); 
+}
+
+.chat-message {
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: left;
+}
+
+.chat-message-user {
+  font-weight: bold;
+  color: #bc9eecce;
+}
+
+.chat-message-assistant {
+  font-weight: bold;
+  color: #59a088d8;
+}
+
+.chat-input-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  
+}
+
+.chat-input {
+  flex: 1;
+  padding: 8px;
+  background: rgba(207, 223, 236, 0.295);
+  color: rgba(255, 255, 255, 0.836);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.chat-input:focus {
+  outline: none;
+  border: 1px solid rgba(240, 240, 240, 0.247);
+  box-shadow: 0 0 5px 3px rgba(220, 232, 240, 0.541); 
 }

@@ -11,11 +11,11 @@ export type ChatResponse = {
 
 const API_URL = 'http://localhost:8787/api/chat';
 
-export async function sendChat(args: {
+export const sendChat = async (args: {
   provider: Provider;
   messages: ApiMessage[];
   model?: string;
-}): Promise<ChatResponse> {
+}): Promise<ChatResponse> => {
   const res = await fetch(API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -32,4 +32,4 @@ export async function sendChat(args: {
   }
 
   return data as ChatResponse;
-}
+};
