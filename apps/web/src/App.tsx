@@ -80,21 +80,20 @@ const App = () => {
 
   return (
     <div className='app-container'>
-      <h1>Chat QA Playground</h1>
+      <h1 className='title'>Chat QA Playground</h1>
+      <div className='chat-container'>
+        <label className='provider-label'>
+          Provider:&nbsp;
+          <select
+            value={provider}
+            className='provider-select'
+            onChange={(e) => setProvider(e.target.value as any)}
+          >
+            <option value='openai'>OpenAI</option>
+            <option value='anthropic'>Claude</option>
+          </select>
+        </label>
 
-      <label className='provider-label'>
-        Provider:&nbsp;
-        <select
-          value={provider}
-          className='provider-select'
-          onChange={(e) => setProvider(e.target.value as any)}
-        >
-          <option value='openai'>OpenAI</option>
-          <option value='anthropic'>Claude</option>
-        </select>
-      </label>
-
-      <div className='chat-background'>
         <div className='model-info'>
           Using model: <code className='model-name'>{model}</code>{' '}
           {msgs.length > 0 && (
@@ -110,48 +109,58 @@ const App = () => {
           data-testid='chat-thread'
           className='chat-thread'
         >
-          {msgs.map((m, i) => (
-            <div
-              key={i}
-              data-testid={`msg-${m.role}`}
-              className='chat-message'
-            >
-              <strong
-                className={
-                  m.role == 'user'
-                    ? 'chat-message-user'
-                    : 'chat-message-assistant'
-                }
+          <div className='chat-messages'>
+            {msgs.map((m, i) => (
+              <div
+                key={i}
+                data-testid={`msg-${m.role}`}
+                className='chat-message'
               >
-                {m.role.charAt(0).toUpperCase() + m.role.slice(1)}:
-              </strong>{' '}
-              {m.content}
-            </div>
-          ))}
-          {loading && <div data-testid='loading'>Loading…</div>}
-          {error && <div data-testid='error'>Error: {error}</div>}
+                <strong
+                  className={
+                    m.role == 'user'
+                      ? 'chat-message-user'
+                      : 'chat-message-assistant'
+                  }
+                >
+                  {m.role.charAt(0).toUpperCase() + m.role.slice(1)}:
+                </strong>{' '}
+                {m.content}
+              </div>
+            ))}
+            {loading && (
+              <div
+                data-testid='loading'
+                className='loading'
+              >
+                Loading…
+              </div>
+            )}
+            {error && <div data-testid='error'>Error: {error}</div>}
+          </div>
         </div>
-      </div>
 
-      <div className='chat-input-container'>
-        <input
-          ref={inputRef}
-          data-testid='chat-input'
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && send()}
-          placeholder='Ask something…'
-          className='chat-input'
-          disabled={loading}
-        />
-        <button
-          data-testid='send-btn'
-          onClick={send}
-          disabled={loading}
-          type='button'
-        >
-          Send
-        </button>
+        <div className='chat-input-container'>
+          <input
+            ref={inputRef}
+            data-testid='chat-input'
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && send()}
+            placeholder='Ask something…'
+            className='chat-input'
+            disabled={loading}
+          />
+          <button
+            data-testid='send-btn'
+            className='send-btn'
+            onClick={send}
+            disabled={loading}
+            type='button'
+          >
+            Send
+          </button>
+        </div>
       </div>
     </div>
   );
