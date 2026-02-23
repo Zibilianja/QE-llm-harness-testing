@@ -1,0 +1,14 @@
+/* Cypress CT mounts into an iframe. Make the height chain real. */
+/* Force CT host to behave like a normal full-page app, not centered demo layout */
+body {
+  display: block !important;
+  place-items: initial !important;
+  min-height: 100vh !important;
+}
+
+/* Ensure Cypress mount root fills the viewport */
+#__cy_root {
+  height: 100vh !important;
+  width: 100vw !important;
+  display: block !important;
+}

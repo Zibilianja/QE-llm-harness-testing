@@ -1,0 +1,6 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "text": "Hello! I'm doing great, thank you. How can I assist you today?",
+  "latencyMs": 1137
+}

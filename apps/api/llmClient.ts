@@ -23,6 +23,7 @@ export const sendChat = async (args: {
   });
 
   const data = await res.json();
+  console.log(data);
   if (!res.ok) {
     const msg =
       data?.error?.message ??

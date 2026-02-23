@@ -110,6 +110,9 @@ const App = () => {
           className='chat-thread'
         >
           <div className='chat-messages'>
+            {msgs.length == 0 && (
+              <div className='chat-message'>Please ask a question below...</div>
+            )}
             {msgs.map((m, i) => (
               <div
                 key={i}
@@ -132,6 +135,7 @@ const App = () => {
               <div
                 data-testid='loading'
                 className='loading'
+                style={{ marginLeft: '2.5rem' }}
               >
                 Loading…
               </div>
