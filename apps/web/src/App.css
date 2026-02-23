@@ -190,6 +190,11 @@ min-height: 100vh;
   padding-left: 1rem;
 }
 
+.chat-input::placeholder {
+  color: rgba(255, 255, 255, 0.575);
+
+}
+
 .chat-input:focus {
   outline: none;
   border: 1px solid rgba(240, 240, 240, 0.247);

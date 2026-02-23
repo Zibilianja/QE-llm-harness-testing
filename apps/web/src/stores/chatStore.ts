@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { ChatStore, ChatMessage } from '@/types';
+import type { ChatStore } from '@/types';
 
 export const useChatStore = create<ChatStore>((set, get) => ({
   input: '',

@@ -95,7 +95,7 @@ const App = () => {
         </label>
 
         <div className='model-info'>
-          Using model: <code className='model-name'>{model}</code>{' '}
+          Using model: <code className='model-name'>{model}</code>
           {msgs.length > 0 && (
             <button
               className='clear-messages'
